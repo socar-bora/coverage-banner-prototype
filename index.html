@@ -80,7 +80,7 @@ a { color: var(--accent-ink); }
 .card h2 { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 12px; }
 .ctl { display: grid; grid-template-columns: 112px 1fr; gap: 10px 12px; align-items: center; }
 .ctl label { font-size: 13px; font-weight: 600; color: var(--fg-2); }
-.ctl small { display: block; font-weight: 500; color: var(--fg-3); font-size: 11px; margin-top: 1px; }
+.ctl small { display: block; font-weight: 500; color: var(--fg-3); font-size: 11px; margin-top: 1px; word-break: keep-all; }
 .seg { display: flex; background: var(--seg-bg); border-radius: 10px; padding: 3px; gap: 2px; }
 .seg button { flex: 1; border: 0; background: transparent; border-radius: 8px; padding: 7px 8px; font-size: 13px; font-weight: 600; color: var(--fg-2); cursor: pointer; transition: background .15s, color .15s; white-space: nowrap; }
 .seg button[aria-pressed="true"] { background: var(--seg-on); color: var(--fg); box-shadow: 0 1px 2px rgba(20,26,36,.12); }
@@ -239,7 +239,6 @@ a { color: var(--accent-ink); }
 .now-name { font-size: 14px; line-height: 22px; font-weight: 400; color: #374553; word-break: keep-all; overflow-wrap: anywhere; }
 .now-price { font-size: 18px; line-height: 26px; font-weight: 600; color: #374553; white-space: nowrap; }
 .now-strike { font-size: 12px; line-height: 18px; font-weight: 500; color: #99A1B1; text-decoration: line-through; white-space: nowrap; }
-.now-main .pill-teuk { margin-top: 2px; align-self: flex-start; }
 .now-go { width: 24px; height: 24px; flex: none; line-height: 0; }
 .now-div { height: 1px; margin: 0 24px; background-image: linear-gradient(90deg, #E5E8EF 50%, rgba(229,232,239,0) 50%); background-size: 4px 1px; }
 
@@ -368,7 +367,7 @@ a { color: var(--accent-ink); }
         <label>화면<small id="flow-lock"></small></label>
         <div class="seg" id="seg-flow"><button type="button" data-v="pickup">가지러 가기</button><button type="button" data-v="delivery">여기로 배달받기</button><button type="button" data-v="now">지금 배달받기</button></div>
         <label>케이스<small id="case-note"></small></label>
-        <div class="seg wrap" id="seg-case"><button type="button" data-v="normal">기본</button><button type="button" data-v="hochul">부름 호출존</button><button type="button" data-v="bl">블랙라벨 탭<small class="tagnote">논의 중</small></button><button type="button" data-v="teuk">특약 적용 차종</button></div>
+        <div class="seg wrap" id="seg-case"><button type="button" data-v="normal">기본</button><button type="button" data-v="hochul">부름 호출존</button><button type="button" data-v="bl">블랙라벨 탭<small class="tagnote">논의 중</small></button></div>
         <label>바텀시트<small>펼침 / 축소 450px</small></label>
         <div class="seg" id="seg-sheet"><button type="button" data-v="closed">축소<small class="dft">기본값</small></button><button type="button" data-v="open">펼침</button></div>
         <label>진입<small id="entry-lock" hidden></small></label>
@@ -400,7 +399,7 @@ a { color: var(--accent-ink); }
         <li id="dir-jeju" hidden><span class="n keep">5</span><span><b>제주의 연식·연료·인승 태그는 유지.</b> 완전면책 안내는 행이 아니라 배너(제주 전용 완전면책 + 항공편 지연·결항 보장)로 들어가고, 10% 적립도 배너에서 함께 안내해요.</span></li>
         <li id="dir-6" hidden><span class="n">6</span><span><b>부름홈: ‘여기로 부르기’ → ‘여기로 배달받기’, ‘쏘카 추천’ 탭 없음.</b> 차종 탭은 전기부터 시작하고, 총결제요금 띠 자리에 스티키 보장 배너가 들어가요.</span></li>
         <li id="dir-7" hidden><span class="n keep">7</span><span><b>부름 호출존: ‘이 쏘카존으로 배달받을 수 있는 차’ 타이틀은 유지.</b> 그 위 띠 자리에 보장 배너가 들어가고, 배달 차량은 새 차 리스트 카드로 보여요.</span></li>
-        <li id="dir-8" hidden><span class="n add">8</span><span><b>즉시배달: ‘지금 바로 받을 수 있는 차 23대’ 아래에 보장 배너 추가.</b> As-Is엔 보장 안내가 없어요. 카드는 기존 즉시배달 카드를 유지하고, 특약 적용 차종만 ‘OO 대신 특약 적용 ⓘ’ 칩이 붙어요.</span></li>
+        <li id="dir-8" hidden><span class="n add">8</span><span><b>즉시배달: ‘지금 바로 받을 수 있는 차 23대’ 아래에 보장 배너 추가.</b> As-Is엔 보장 안내가 없어요. 카드는 기존 즉시배달 카드를 유지해요.</span></li>
         <li id="dir-9" hidden><span class="n add">9</span><span><b>블랙라벨 탭: 보장 배너 아래 블랙라벨 프로모션 배너가 이어서 쌓여요.</b> 배너 두 개가 연달아 보이는 구조라 피그마에서도 ‘논의 중’으로 표시돼 있어요.</span></li>
       </ul>
       <p class="quote"><b>피그마 메모 (AsIs 섹션)</b>
@@ -426,13 +425,13 @@ a { color: var(--accent-ink); }
     'inland-silsok-open': '13374-249508', 'inland-silsok-sheet': '13374-249597', 'inland-silsok-closed': '13374-249551',
     'jeju-jeju-open': '13374-250701', 'jeju-jeju-sheet': '13374-250790', 'jeju-jeju-closed': '13374-250744',
     'hochul': '13405-244104', 'bl': '13455-339782',
-    'now-open': '13405-320353', 'now-sheet': '13405-331789', 'now-closed': '13405-334401', 'now-teuk': '13405-337144',
+    'now-open': '13405-320353', 'now-sheet': '13405-331789', 'now-closed': '13405-334401',
     'modal': '13401-252381', 'wrap': '13405-109194'
   };
   /* region: 내륙/제주 · coverage: 지난 예약 보장상품(내륙 기본값 완전보장 · 제주는 완전면책 고정)
      flow: 'pickup'(가지러 가기) | 'delivery'(여기로 배달받기) | 'now'(지금 배달받기 · 즉시배달, 내륙 기준)
            — 세 화면 모두 진입 기본은 바텀시트 450px 축소, 펼침 동작도 동일
-     kase: 'normal' | 'hochul'(가지러 가기 · 공통) 부름 호출존) | 'bl'(배달받기 · 블랙라벨 탭, 논의 필요) | 'teuk'(즉시배달 · 특약 적용 차종)
+     kase: 'normal' | 'hochul'(가지러 가기 · 공통) 부름 호출존) | 'bl'(배달받기 · 블랙라벨 탭, 논의 필요)
      sheetOpen: 바텀시트 펼침(전체 높이) / 축소(450px) — 축소일 땐 차가 보여야 하므로 배너는 접힌 상태로 둠
      entry: 진입 시점의 유저 상태 — 'first'(최초 진입 · 미확인) | 're'(1회 확인 유저)
      seen: '1회 확인 유저' 여부 (다음 진입에 그대로 이어짐). 확인 기준:
@@ -442,8 +441,8 @@ a { color: var(--accent-ink); }
        확인된 뒤에는 시트를 다시 펼치거나 다시 진입해도 접힌 채 (탭하면 펼침)
      longText: 줄바꿈 처리 확인용 긴 문구 */
   var state = { region: 'inland', coverage: 'full', flow: 'pickup', kase: 'normal', entry: 'first', seen: false, seenBy: '', bannerOpen: false, sheetOpen: false, modal: false, compare: false, longText: false, log: [] };
-  var CASE_FLOW = { hochul: 'pickup', bl: 'delivery', teuk: 'now' };
-  var CASE_LABEL = { hochul: '부름 호출존', bl: '블랙라벨 탭', teuk: '특약 적용 차종' };
+  var CASE_FLOW = { hochul: 'pickup', bl: 'delivery' };
+  var CASE_LABEL = { hochul: '부름 호출존', bl: '블랙라벨 탭' };
   var FLOW_LABEL = { pickup: '가지러 가기', delivery: '여기로 배달받기', now: '지금 배달받기' };
   var SEEN_BY = { sheet: '시트를 펼쳐 리스트 확인', banner: '배너 탭', entry: '진입 전부터 확인 유저' };
   function markSeen(by) { if (state.seen) return false; state.seen = true; state.seenBy = by; return true; }
@@ -526,17 +525,16 @@ a { color: var(--accent-ink); }
     return '<div class="car-list">' + data.map(row).join('<div class="car-div"></div>') + '<div class="car-div"></div></div>';
   }
 
-  /* ---------- 즉시배달 카드 (피그마 지금 배달_기본화면 · 기존 즉시배달 카드 유지 + 특약 칩) */
+  /* ---------- 즉시배달 카드 (피그마 지금 배달_기본화면 · 기존 즉시배달 카드 유지) */
   var NOW_ROWS = [
-    { eta: '11:38 도착 예정', name: 'EV6 롱레인지', price: '83,910원', th: 'nt1', teuk: true },
+    { eta: '11:38 도착 예정', name: 'EV6 롱레인지', price: '83,910원', th: 'nt1' },
     { eta: '11:42 도착 예정', name: 'GV70', price: '126,750원', strike: '225,370원', th: 'nt2' },
     { eta: '11:48 도착 예정', name: '[충전보장] 아이오닉 6 롱레인지', price: '63,910원', strike: '120,300원', th: 'nt3' }
   ];
   function nowCard(r) {
-    var p = (r.teuk && state.kase === 'teuk') ? teukPill(COPY[cov()].teuk) : '';
     return '<div class="now-card"><div class="now-thumbcol"><div class="now-thumb ' + r.th + '" role="img" aria-label="' + r.name + ' 차량 사진"></div><div class="kmchip"><span>0원/km</span></div></div>' +
       '<div class="now-info"><div class="now-main"><div class="now-eta">' + ico('clock') + '<span>' + r.eta + '</span></div>' +
-      '<p class="now-name">' + r.name + '</p><p class="now-price">' + r.price + '</p>' + (r.strike ? '<p class="now-strike">' + r.strike + '</p>' : '') + p + '</div>' +
+      '<p class="now-name">' + r.name + '</p><p class="now-price">' + r.price + '</p>' + (r.strike ? '<p class="now-strike">' + r.strike + '</p>' : '') + '</div>' +
       '<span class="now-go" aria-hidden="true">' + I.cardChevron + '</span></div></div>';
   }
   function renderNowList() { return '<div class="now-list">' + NOW_ROWS.map(nowCard).join('<div class="now-div"></div>') + '</div>'; }
@@ -616,7 +614,7 @@ a { color: var(--accent-ink); }
   function figNode() {
     if (state.modal) return NODES.modal;
     if (state.longText) return NODES.wrap;
-    if (state.flow === 'now') return state.kase === 'teuk' ? NODES['now-teuk'] : NODES['now-' + screenState()];
+    if (state.flow === 'now') return NODES['now-' + screenState()];
     if (state.kase === 'hochul') return NODES.hochul;
     if (state.kase === 'bl') return NODES.bl;
     if (state.flow === 'delivery') return NODES[state.region + '-' + cov() + '-sheet'];
@@ -625,7 +623,7 @@ a { color: var(--accent-ink); }
   function guideLabel() {
     var sc = screenState(), base;
     if (state.modal) base = '특약 바텀시트 · 공통 - 내륙,제주 · 차 리스트 내 - ‘' + COPY[cov()].teuk + '’ 눌렀을 때';
-    else if (state.flow === 'now') base = '즉시배달 · ' + (state.kase === 'teuk' ? '특약 적용 차종' : '완전보장 - 내륙 (다른 보장 및 보험 케이스 위에서 확인) · ' + SCREEN[sc]);
+    else if (state.flow === 'now') base = '즉시배달 · 완전보장 - 내륙 (다른 보장 및 보험 케이스 위에서 확인) · ' + SCREEN[sc];
     else if (state.kase === 'hochul') base = '차 리스트 - 케이스 · 공통) 부름 호출존';
     else if (state.kase === 'bl') base = '차 리스트 - 케이스 · 블랙라벨 배너 - 논의 중';
     else base = GUIDE[state.region + '-' + cov()] + ' · ' + SCREEN[sc];
@@ -671,7 +669,6 @@ a { color: var(--accent-ink); }
     if (state.flow === 'now') {
       out.push('즉시배달 구조: 지금 배달받기(Beta) → 주소 / 총 4시간 이용 → <b>⚡ 지금 바로 받을 수 있는 차 23대</b> → 보장 배너(상 12) → 도착 예정 시간이 있는 즉시배달 카드(기존 카드 유지) <small>(내륙 기준 · 편도 불가)</small>');
       if (!state.sheetOpen) out.push('바텀시트 축소 시 지도 위 “왕복 예약 후, 편도로 반납할 수 있어요!” 토스트');
-      if (state.kase === 'teuk') out.push('<b>특약 적용 차종</b>: 카드 가격 아래 “' + COPY[c].teuk + ' ⓘ” 칩 (탭 → 특약 바텀시트)');
       out.push('<span class="note">피그마 즉시배달 화면은 라벨이 완전보장인데 배너는 실속보장으로 그려져 있어요 — 프로토타입은 패널의 보장상품 값을 따라가요</span>');
     } else {
       out.push(LIST_RULE[state.region]);
@@ -743,7 +740,7 @@ a { color: var(--accent-ink); }
     var lock = $('cov-lock'); lock.hidden = false;
     lock.textContent = locked ? '제주 only · 완전면책 고정' : '내륙 기본값: 완전보장';
     $('flow-lock').textContent = '진입 상태 = 시트 450px 축소 (세 화면 동일)';
-    $('case-note').textContent = state.kase === 'normal' ? '피그마 “차 리스트 - 케이스” · 즉시배달' : '→ 화면: ' + FLOW_LABEL[CASE_FLOW[state.kase]];
+    $('case-note').textContent = state.kase === 'normal' ? '피그마 “차 리스트 - 케이스”' : '→ 화면: ' + FLOW_LABEL[CASE_FLOW[state.kase]];
     $('now-label').textContent = stateLabel();
     var m = $('now-modal'); m.hidden = !state.modal;
     var fig = $('fig-link'); var node = figNode();
